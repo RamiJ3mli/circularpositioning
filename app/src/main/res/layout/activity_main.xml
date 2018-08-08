@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#263238">
+
+    <View
+        android:id="@+id/clock_background"
+        android:layout_width="166dp"
+        android:layout_height="166dp"
+        android:background="@drawable/all_bg_clock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/blue_hour_decoration"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/all_bg_blue_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/red_minute_decoration"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/all_bg_red_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/hour_hand"
+        android:layout_width="8dp"
+        android:layout_height="60dp"
+        android:background="@drawable/all_bg_hour_handle"
+        android:rotation="0"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="45dp" />
+
+    <View
+        android:id="@+id/minute_hand"
+        android:layout_width="8dp"
+        android:layout_height="91dp"
+        android:background="@drawable/all_bg_min_handle"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="51dp" />
+
+    <View
+        android:id="@+id/second_hand"
+        android:layout_width="2dp"
+        android:layout_height="16dp"
+        android:background="#F44336"
+        android:rotation="0"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="89dp" />
+
+    <TextView
+        android:id="@+id/twelve"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="12"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/one"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="30"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/two"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="2"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="60"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/three"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="3"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="90"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/four"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="4"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="120"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/five"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="5"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="150"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/six"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="6"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="180"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/seven"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="7"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="210"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/eight"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="8"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="240"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/nine"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="9"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="270"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/ten"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="10"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="300"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <TextView
+        android:id="@+id/eleven"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/all_bg_hour_marks"
+        android:gravity="center"
+        android:text="11"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintCircle="@+id/clock_background"
+        app:layout_constraintCircleAngle="330"
+        app:layout_constraintCircleRadius="120dp" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/all_bg_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/six" />
+
+</android.support.constraint.ConstraintLayout>
