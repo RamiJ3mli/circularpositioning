@@ -5,6 +5,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
 import java.util.concurrent.TimeUnit;
@@ -19,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     ConstraintLayout mConstraintLayout;
 
     private ConstraintSet constraintSet;
-    private ValueAnimator hoursAnimation, minutesAnimation, secondsAnimation;
-    private int hoursRadius, minutesRadius, secondsRadius;
+    private ValueAnimator hoursAnimation, minutesAnimation, secondsAnimation, msAnimation;
+    private int hoursRadius, minutesRadius, secondsRadius, msRadius;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 hoursAnimation.resume();
                 minutesAnimation.resume();
                 secondsAnimation.resume();
+                msAnimation.resume();
             }
         }
     }
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             hoursAnimation.pause();
             minutesAnimation.pause();
             secondsAnimation.pause();
+            msAnimation.pause();
         }
     }
 
@@ -62,19 +65,22 @@ public class MainActivity extends AppCompatActivity {
             hoursAnimation.cancel();
             minutesAnimation.cancel();
             secondsAnimation.cancel();
+            msAnimation.cancel();
 
             hoursAnimation.removeAllUpdateListeners();
             minutesAnimation.removeAllUpdateListeners();
             secondsAnimation.removeAllUpdateListeners();
+            msAnimation.removeAllUpdateListeners();
         }
-        hoursAnimation =  minutesAnimation = secondsAnimation =null;
+        hoursAnimation = minutesAnimation = secondsAnimation = msAnimation = null;
         super.onDestroy();
     }
 
     private void initAnimations() {
         hoursRadius = ScreenUtil.convertDIPToPixels(getApplicationContext(), 40);
         minutesRadius = ScreenUtil.convertDIPToPixels(getApplicationContext(), 51);
-        secondsRadius = ScreenUtil.convertDIPToPixels(getApplicationContext(), 89);
+        secondsRadius = ScreenUtil.convertDIPToPixels(getApplicationContext(), 51);
+        msRadius = ScreenUtil.convertDIPToPixels(getApplicationContext(), 7);
 
         //HOURS HAND ANIMATION
         hoursAnimation = animate(TimeUnit.SECONDS.toMillis(40));
@@ -89,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //MINUTES HAND ANIMATION
-        minutesAnimation = animate(TimeUnit.SECONDS.toMillis(5));
+        minutesAnimation = animate(TimeUnit.SECONDS.toMillis(10));
         minutesAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -101,13 +107,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //SECONDS HAND ANIMATION
-        secondsAnimation = animate(TimeUnit.SECONDS.toMillis(2));
+        secondsAnimation = animate(TimeUnit.SECONDS.toMillis(3));
         secondsAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int degrees = (Integer) valueAnimator.getAnimatedValue();
                 constraintSet.constrainCircle(R.id.second_hand, R.id.clock_background, secondsRadius, degrees);
                 constraintSet.setRotation(R.id.second_hand, degrees);
+                constraintSet.applyTo(mConstraintLayout);
+            }
+        });
+
+        //SECONDS HAND ANIMATION
+        msAnimation = animate(200);
+        msAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                int degrees = (Integer) valueAnimator.getAnimatedValue();
+                constraintSet.constrainCircle(R.id.ticker, R.id.second_hand, msRadius, degrees);
+                constraintSet.setRotation(R.id.ticker, degrees);
                 constraintSet.applyTo(mConstraintLayout);
             }
         });
@@ -128,14 +146,17 @@ public class MainActivity extends AppCompatActivity {
             hoursAnimation.resume();
             minutesAnimation.resume();
             secondsAnimation.resume();
+            msAnimation.resume();
         } else if (hoursAnimation.isRunning()) {
             hoursAnimation.pause();
             minutesAnimation.pause();
             secondsAnimation.pause();
+            msAnimation.pause();
         } else {
             hoursAnimation.start();
             minutesAnimation.start();
             secondsAnimation.start();
+            msAnimation.start();
         }
     }
 }

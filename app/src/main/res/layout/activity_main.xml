@@ -10,6 +10,7 @@
         android:id="@+id/clock_background"
         android:layout_width="166dp"
         android:layout_height="166dp"
+        app:layout_constraintVertical_bias=".4"
         android:background="@drawable/all_bg_clock"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,21 +21,23 @@
         android:id="@+id/blue_hour_decoration"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:elevation="2dp"
         android:background="@drawable/all_bg_blue_circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/clock_background"
+        app:layout_constraintEnd_toEndOf="@+id/clock_background"
+        app:layout_constraintStart_toStartOf="@+id/clock_background"
+        app:layout_constraintTop_toTopOf="@+id/clock_background" />
 
     <View
         android:id="@+id/red_minute_decoration"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:elevation="4dp"
         android:background="@drawable/all_bg_red_circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/clock_background"
+        app:layout_constraintEnd_toEndOf="@+id/clock_background"
+        app:layout_constraintStart_toStartOf="@+id/clock_background"
+        app:layout_constraintTop_toTopOf="@+id/clock_background" />
 
 
     <View
@@ -42,6 +45,7 @@
         android:layout_width="8dp"
         android:layout_height="60dp"
         android:background="@drawable/all_bg_hour_handle"
+        android:elevation="2dp"
         android:rotation="0"
         app:layout_constraintCircle="@+id/clock_background"
         app:layout_constraintCircleAngle="0"
@@ -51,6 +55,7 @@
         android:id="@+id/minute_hand"
         android:layout_width="8dp"
         android:layout_height="91dp"
+        android:elevation="4dp"
         android:background="@drawable/all_bg_min_handle"
         app:layout_constraintCircle="@+id/clock_background"
         app:layout_constraintCircleAngle="0"
@@ -59,12 +64,34 @@
     <View
         android:id="@+id/second_hand"
         android:layout_width="2dp"
-        android:layout_height="16dp"
-        android:background="#F44336"
-        android:rotation="0"
+        android:elevation="4dp"
+        android:layout_height="91dp"
+        android:background="@drawable/all_bg_min_handle"
         app:layout_constraintCircle="@+id/clock_background"
         app:layout_constraintCircleAngle="0"
-        app:layout_constraintCircleRadius="89dp" />
+        app:layout_constraintCircleRadius="51dp" />
+
+    <View
+        android:id="@+id/ticker_holder"
+        android:layout_width="36dp"
+        android:elevation="4dp"
+        android:layout_height="36dp"
+        android:background="@drawable/all_bg_clock"
+        android:rotation="0"
+        app:layout_constraintCircle="@+id/second_hand"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="0dp" />
+
+    <View
+        android:id="@+id/ticker"
+        android:layout_width="28dp"
+        android:layout_height="14dp"
+        android:background="@drawable/all_bg_micro_ticker"
+        android:elevation="4dp"
+        android:rotation="0"
+        app:layout_constraintCircle="@+id/ticker_holder"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="7dp" />
 
     <TextView
         android:id="@+id/twelve"
